@@ -28,6 +28,9 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        
+      - name: Install Chromium Driver
+        run: npx playwright install chromium
 
       - name: Run Tests
         env:

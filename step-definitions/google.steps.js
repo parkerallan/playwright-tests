@@ -1,3 +1,4 @@
+const { Before, After } = require('@cucumber/cucumber');
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { chromium } = require('playwright');
 require('dotenv').config();
@@ -22,5 +23,10 @@ Then('the page title should contain {string}', async function (expectedText) {
   if (!title.includes(expectedText)) {
     throw new Error(`Expected title to contain "${expectedText}", but got "${title}"`);
   }
-  await this.browser.close(); // Close the browser
+});
+
+After(async function () {
+  if (this.browser) {
+    await this.browser.close();
+  }
 });

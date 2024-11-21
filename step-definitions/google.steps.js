@@ -2,7 +2,7 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const { chromium } = require('playwright');
 
 Given('I am on the Google homepage', async function () {
-  this.browser = await chromium.launch({ headless: false }); // Launch the browser
+  this.browser = await chromium.launch({  headless: process.env.HEADLESS === 'true', });
   this.page = await this.browser.newPage(); // Create a new page
   await this.page.goto('https://www.google.com'); // Navigate to Google
 });

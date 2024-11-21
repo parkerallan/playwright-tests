@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cucumber-js --require ./step-definitions/**/*.js ./features/**/*.feature"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "playwright": "^1.49.0"
-  },
   "devDependencies": {
-    "@playwright/test": "^1.49.0"
+    "@cucumber/cucumber": "^11.1.0",
+    "@playwright/test": "^1.49.0",
+    "cucumber": "^6.0.7",
+    "playwright": "^1.49.0"
   }
 }

@@ -1,9 +1,10 @@
-const { Given } = require('@cucumber/cucumber');
+const { Given, setDefaultTimeout } = require('@cucumber/cucumber');
 const { chromium } = require('playwright');
 const { resolveVars } = require ('../utils/resolveVars.js');
 require('dotenv').config();
 
 const isHeadless = process.env.HEADLESS === 'true';
+setDefaultTimeout(15000);
 
 Given("a user opens the page {string}", async function (pageUrl) {
   this.browser = await chromium.launch({headless: isHeadless});

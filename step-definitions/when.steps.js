@@ -21,3 +21,7 @@ When("waiting for element with locator value {string} to be visible", async func
   let element = await this.page.locator(value);
   await element.waitFor({ state: 'visible' });
 });
+
+When("pressing the {string} key", async function (key) {
+  await this.page.keyboard.press(key);
+});
